@@ -1,0 +1,11 @@
+pip
+wheel
+watchdog
+tox
+tox-conda
+coverage
+Sphinx
+pytest
+pytest-runner
+
+

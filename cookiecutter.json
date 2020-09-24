@@ -1,0 +1,10 @@
+{
+  "full_name": "Your name",
+  "email": "your@email.com",
+  "project_name": "pysteps-importer-abc-xyz",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "project_short_description": "Pysteps plugin adding the abc-xyz importers.",
+  "importer_name": "importer_abc_xyz",
+  "version": "0.1.0",
+  "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"]
+}
