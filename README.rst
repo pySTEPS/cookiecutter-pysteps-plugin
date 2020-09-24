@@ -1,3 +1,8 @@
+.. IMPORTANT::
+   The Plugin support for Pysteps is an experimental feature that is is not supported
+   by any stable release or the main branch in the Pysteps repository.
+   This repository is being used mostly for testing purposes.
+
 ===========================
 Cookiecutter Pysteps-plugin
 ===========================
