@@ -19,15 +19,7 @@ pysteps when the pluging is installed.
 
 ### Installation instructions
 
-Add the installation instructions.
-
-If the package is available in pypi::
-
-    pip install my_pluging
-
-Installing from source::
-
-    pip install .
+.. Add the installation instructions here
 
 
 Credits
