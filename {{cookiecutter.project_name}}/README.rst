@@ -6,27 +6,34 @@
 {{ cookiecutter.project_short_description }}
 
 {% if is_open_source %}
-## License
+License
+=======
 * {{ cookiecutter.open_source_license }}
 {% endif %}
 
-## Documentation
+Documentation
+=============
 
 Here write a short description of the plugin, indicating the importers that provides.
 
-### Installation instructions
+Installation instructions
+=========================
 
 Describe the installation instructions here. For example, how to install the plugin from
 the sources (cloning the repository and running `setup.py install`), or using `pip`.
 
+Test the plugin
+===============
+
+If a test suite is provided with the plugin, describe how to run the tests.
 
 Credits
--------
+=======
 
 - This package was created with Cookiecutter_ and the `pysteps/cookiecutter-pysteps-plugin`_ project template.
 
 .. Since this plugin template is based in the cookiecutter-pypackage template,
-   it is encouraged to leave the following credits to acknowledge Audrey Greenfeld's work.
+it is encouraged to leave the following credits to acknowledge Audrey Greenfeld's work.
 
 - The `pysteps/cookiecutter-pysteps-plugin`_ template was adapted from the cookiecutter-pypackage_
 template.
