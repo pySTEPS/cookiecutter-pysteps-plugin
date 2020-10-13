@@ -6,7 +6,6 @@ import numpy as np
 
 
 ### Uncomment the next lines if pyproj is needed for the importer.
-# from pysteps.exceptions import MissingOptionalDependency
 # try:
 #     import pyproj
 #
@@ -171,6 +170,9 @@ def import_abc_zzz(filename, keyword1="some_keyword", keyword2=10, **kwargs):
 
     ### Uncomment the next lines if pyproj is needed for the importer.
     # if not PYPROJ_IMPORTED:
+    #     # Use local imports to avoid circular imports
+    #     from pysteps.exceptions import MissingOptionalDependency
+    #
     #     raise MissingOptionalDependency(
     #         "pyproj package is required to import "
     #         "FMI's radar reflectivity composite "
