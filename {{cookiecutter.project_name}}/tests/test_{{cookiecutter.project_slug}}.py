@@ -11,8 +11,9 @@ def test_importers_discovery():
 
     from pysteps.io import interface
 
-    assert "import_abc_xxx" in interface._importer_methods
-    assert "import_abc_yyy" in interface._importer_methods
+    new_importers = ["import_abc_xxx", "import_abc_yyy"]
+    for importer in new_importers:
+        assert importer.replace("import_", "") in interface._importer_methods
 
 
 def test_importers_with_files():

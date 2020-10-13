@@ -77,8 +77,8 @@ setup(
     # },
     entry_points={
         'pysteps.plugins.importers': [
-            'import_abc_yyy={{ cookiecutter.project_slug }}.{{ cookiecutter.importer_name }}:import_abc_yyy',
-            'import_abc_zzz={{ cookiecutter.project_slug}}.{{ cookiecutter.importer_name }}:import_abc_zzz',
+            'import_abc_xxx={{ cookiecutter.project_slug }}.{{ cookiecutter.importer_name }}:import_abc_xxx',
+            'import_abc_yyy={{ cookiecutter.project_slug}}.{{ cookiecutter.importer_name }}:import_abc_yyy',
         ]
     },
     version='{{ cookiecutter.version }}',
