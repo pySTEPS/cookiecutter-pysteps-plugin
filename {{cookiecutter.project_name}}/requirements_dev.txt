@@ -1,8 +1,10 @@
+
+# List here all the required packages of the project's development environment.
+
 pip
 wheel
 watchdog
 tox
-tox-conda
 coverage
 Sphinx
 pytest

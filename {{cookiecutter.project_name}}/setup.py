@@ -48,8 +48,8 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     include_package_data=True,
-    keywords=['{{ cookiecutter.project_slug }}', 'pysteps' , 'pluging', 'importer'],
-    name='{{ cookiecutter.project_slug }}',
+    keywords=['{{ cookiecutter.project_slug }}', 'pysteps' , 'plugin', 'importer'],
+    name='{{ cookiecutter.project_name }}',
     packages=find_packages(),
     setup_requires=setup_requirements,
     # In the entry points below, add the importers included in this package.

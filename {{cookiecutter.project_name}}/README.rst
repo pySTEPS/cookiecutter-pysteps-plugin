@@ -8,18 +8,16 @@
 {% if is_open_source %}
 ## License
 * {{ cookiecutter.open_source_license }}
+{% endif %}
 
 ## Documentation
 
-https://{{ cookiecutter.project_slug | replace("_", "-") }}.readthedocs.io.
-{% endif %}
-
-Here write a short description of the plugin, indicating which importers are in added to
-pysteps when the pluging is installed.
+Here write a short description of the plugin, indicating the importers that provides.
 
 ### Installation instructions
 
-.. Add the installation instructions here
+Describe the installation instructions here. For example, how to install the plugin from
+the sources (cloning the repository and running `setup.py install`), or using `pip`.
 
 
 Credits
