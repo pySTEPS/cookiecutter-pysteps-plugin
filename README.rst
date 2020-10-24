@@ -5,8 +5,8 @@
 Cookiecutter Pysteps-plugin
 ===========================
 
-Cookiecutter template for Pysteps plugins packages. Currently, **only importers** are
-supported as plugins.
+Cookiecutter template for Pysteps plugins.
+**Important**:  Currently, only new importers can be added to pysteps using plugins.
 
 **Cookiecutter** is a command-line utility to creates python packages projects from
 templates, called "cookiecutters".
