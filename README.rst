@@ -1,7 +1,5 @@
 .. IMPORTANT::
-   The Plugin support for Pysteps is an experimental feature that is is not supported
-   by any stable release or the main branch in the Pysteps repository.
-   This repository is being used mostly for testing purposes.
+   The plugins support in pySTEPS is only available for versions >=1.4.
 
 ===========================
 Cookiecutter Pysteps-plugin
@@ -24,8 +22,8 @@ Generate a Pysteps plugin package project using::
 
     cookiecutter https://github.com/aperezhortal/cookiecutter-pysteps-plugin
 
-When the above command is run, you are ask to enter the following values that appears in
-different parts of your generated project:
+When the above command is run, you are asked to enter the following values
+(one at a time) that will be use to generate the skeleton for the plugin package:
 
 - **full_name**: Your full name.
 - **email**: Your email address.
@@ -42,7 +40,7 @@ different parts of your generated project:
 Credits
 -------
 
-The cookiecutter-pysteps-plugin template is mostly based on the cookiecutter-pypackage_
+The cookiecutter-pysteps-plugin template was adapted from the cookiecutter-pypackage_
 template.
 
 .. _cookiecutter-pypackage: https://github.com/audreyfeldroy/cookiecutter-pypackage
