@@ -27,7 +27,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requeriments.dev
+          pip install -r requirements_dev.txt
 
       - name: Install pysteps
         if: matrix.os != 'macos-latest'
