@@ -3,9 +3,9 @@ name: Test Pysteps
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   unit_tests:
@@ -27,7 +27,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install requeriments.dev
+          pip install -r requeriments.dev
 
       - name: Install pysteps
         if: matrix.os != 'macos-latest'
