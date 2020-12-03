@@ -1,0 +1,44 @@
+name: Test Pysteps
+
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  unit_tests:
+    name: Unit Tests (${{ matrix.python-version }}, ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ "ubuntu-latest", "macos-latest", "windows-latest" ]
+        python-version: [ "3.6", "3.8" ]
+      max-parallel: 6
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          pip install requeriments.dev
+
+      - name: Install pysteps
+        if: matrix.os != 'macos-latest'
+        working-directory: ${{github.workspace}}
+        run: pip install .
+
+      - name: Check pysteps imports
+        working-directory: ${{github.workspace}}/pysteps_data
+        run: |
+          python -c "import pysteps; print(pysteps.__file__)"
+
+      - name: Run tests
+        run: tox
+
