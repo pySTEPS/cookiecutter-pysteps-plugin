@@ -1,14 +1,12 @@
 
-Welcome to pysteps-importer-abc-xyz's documentation!
-====================================================
+Welcome to cookiecutter-pysteps-plugin's documentation
+======================================================
 
-Getting Started
----------------
+.. include:: ../README.rst
 
 .. toctree::
    :maxdepth: 2
 
-   readme
    tutorial
 
 
