@@ -25,18 +25,18 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install build dependencies for MacOS
-          if: matrix.os == 'macos-latest'
-          working-directory: ${{github.workspace}}
-          env:
-            CC: gcc-9
-            CXX: g++-9
-            CXX1X: g++-9
-            HOMEBREW_NO_INSTALL_CLEANUP: 1
-          run: |
-            brew update-reset
-            brew update
-            brew install gcc@9
-            gcc-9 --version
+        if: matrix.os == 'macos-latest'
+        working-directory: ${{github.workspace}}
+        env:
+          CC: gcc-9
+          CXX: g++-9
+          CXX1X: g++-9
+          HOMEBREW_NO_INSTALL_CLEANUP: 1
+        run: |
+          brew update-reset
+          brew update
+          brew install gcc@9
+          gcc-9 --version
 
       - name: Install dependencies
         run: |
