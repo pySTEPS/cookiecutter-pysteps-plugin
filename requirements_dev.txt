@@ -1,6 +1,5 @@
 pytest
 tox
 cookiecutter>=1.4.0
-yaml
 pytest-cookies
 watchdog
