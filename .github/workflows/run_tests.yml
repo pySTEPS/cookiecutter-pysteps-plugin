@@ -29,16 +29,6 @@ jobs:
         run: |
           pip install -r requirements_dev.txt
 
-      - name: Install pysteps
-        if: matrix.os != 'macos-latest'
-        working-directory: ${{github.workspace}}
-        run: pip install .
-
-      - name: Check pysteps imports
-        working-directory: ${{github.workspace}}/pysteps_data
-        run: |
-          python -c "import pysteps; print(pysteps.__file__)"
-
       - name: Run tests
         run: tox
 
