@@ -2,7 +2,6 @@
 
 """Tests for `{{ cookiecutter.project_slug }}` package."""
 
-
 def test_importers_discovery():
     """It is recommended to at least test that the importers provided by the plugin are
     correctly detected by pysteps. For this, the tests should be ran on the installed

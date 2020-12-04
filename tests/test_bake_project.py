@@ -78,7 +78,7 @@ def test_bake_with_defaults(cookies):
 
         found_toplevel_files = [f.basename for f in result.project.listdir()]
         assert 'setup.py' in found_toplevel_files
-        assert 'pysteps_importer_abc_xyz' in found_toplevel_files
+        assert 'pysteps_importer_abc' in found_toplevel_files
         assert 'tox.ini' in found_toplevel_files
         assert 'tests' in found_toplevel_files
 
@@ -107,18 +107,6 @@ def test_bake_with_apostrophe_and_run_tests(cookies):
     ) as result:
         assert result.project.isdir()
         assert run_inside_dir('python setup.py test', str(result.project)) == 0
-
-
-def test_make_help(cookies):
-    with bake_in_temp_dir(cookies) as result:
-        # The supplied Makefile does not support win32
-        if sys.platform != "win32":
-            output = check_output_inside_dir(
-                'make help',
-                str(result.project)
-            )
-            assert b"check code coverage quickly with the default Python" in \
-                   output
 
 
 def test_bake_selecting_license(cookies):
@@ -158,10 +146,9 @@ def test_using_pytest(cookies):
     ) as result:
         assert result.project.isdir()
         test_file_path = result.project.join(
-            'tests/test_pysteps_importer_abc_xyz.py'
+            'tests/test_pysteps_importer_abc.py'
         )
         lines = test_file_path.readlines()
-        assert "import pytest" in ''.join(lines)
         # Test the new pytest target
         assert run_inside_dir('python setup.py pytest', str(result.project)) == 0
         # Test the test alias (which invokes pytest)
