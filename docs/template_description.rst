@@ -1,8 +1,8 @@
 .. _plugin_template_description:
 
-=======================================
-cookiecutter-pysteps-plugin description
-=======================================
+==========================================
+Description of the pysteps-plugin template
+==========================================
 
 The plugin template skeleton has the following structure:
 
