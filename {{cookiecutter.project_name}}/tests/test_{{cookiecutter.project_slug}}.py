@@ -10,7 +10,7 @@ def test_importers_discovery():
 
     from pysteps.io import interface
 
-    new_importers = ["import_abc_xxx", "import_abc_yyy"]
+    new_importers = ["{{cookiecutter.importer_name }}_xxx"]
     for importer in new_importers:
         assert importer.replace("import_", "") in interface._importer_methods
 

@@ -20,8 +20,8 @@ import numpy as np
 from pysteps.decorators import postprocess_import
 
 
-# Function import_abc_xxx to import XXX-format files from the ABC institution
-# ===========================================================================
+# Function {{ cookiecutter.importer_name }}_xxx to import XXX-format
+# files from the ABC institution
 
 # IMPORTANT: The name of the importer should follow the "importer_institution_format"
 # naming convention, where "institution" is the acronym or short-name of the
@@ -82,7 +82,7 @@ from pysteps.decorators import postprocess_import
 
 
 @postprocess_import()
-def import_abc_xxx(filename, keyword1="some_keyword", keyword2=10, **kwargs):
+def {{cookiecutter.importer_name }}_xxx(filename, keyword1="some_keyword", keyword2=10, **kwargs):
     """
     A detailed description of the importer. A minimal documentation is
     strictly needed since the pysteps importers interface expect docstrings.
@@ -124,7 +124,7 @@ def import_abc_xxx(filename, keyword1="some_keyword", keyword2=10, **kwargs):
     ### Uncomment the next lines if pyproj is needed for the importer
     # if not PYPROJ_IMPORTED:
     #     raise MissingOptionalDependency(
-    #         "pyproj package is required by import_abc_xxx
+    #         "pyproj package is required by {{cookiecutter.importer_name }}_xxx
     #         "but it is not installed"
     #     )
 
@@ -173,77 +173,4 @@ def import_abc_xxx(filename, keyword1="some_keyword", keyword2=10, **kwargs):
     )
 
     # IMPORTANT! The importers should always return the following fields:
-    return precip, quality, metadata
-
-
-# Function import_abc_yyy to import YYY files from the ABC institution
-# =======================================================================
-
-
-@postprocess_import()
-def import_abc_yyy(filename, keyword1="some_keyword", keyword2=10, **kwargs):
-    """A detailed description of the importer. A minimal documentation is
-    strictly needed since the pysteps importers interface expect docstrings.
-
-    Parameters
-    ----------
-    filename : str
-        Name of the file to import.
-
-    keyword1 : str
-        Some keyword used to fine control the importer behavior.
-
-    keyword2 : int
-        Another keyword used to fine control the importer behavior.
-
-    {extra_kwargs_doc}
-
-    ####################################################################################
-    # The {extra_kwargs_doc} above is needed to add default keywords added to this     #
-    # importer by the pysteps.decorator.postprocess_import decorator.                  #
-    # IMPORTANT: Remove these box in the final version of this function                #
-    ####################################################################################
-
-    Returns
-    -------
-    precipitation : 2D array, float32
-        Precipitation field in mm/h. The dimensions are [latitude, longitude].
-    quality : 2D array or None
-        If no quality information is available, set to None.
-    metadata : dict
-        Associated metadata (pixel sizes, map projections, etc.).
-    """
-
-    ### Uncomment the next lines if pyproj is needed for the importer
-    # if not PYPROJ_IMPORTED:
-    #     raise MissingOptionalDependency(
-    #         "pyproj package is required by import_abc_xxx
-    #         "but it is not installed"
-    #     )
-
-    # Add the code to read the precipitation data (cartesian grid!) here.
-    precip = np.zeros((100, 100))
-    quality = np.ones((100, 100))
-
-    projection_definition = (
-        "+proj=stere +lon_0=25E +lat_0=90N +lat_ts=60 +a=6371288 "
-        "+x_0=380886.310 +y_0=3395677.920 +no_defs",
-    )
-
-    metadata = dict(
-        xpixelsize=1,
-        ypixelsize=1,
-        cartesian_unit="km",
-        unit="mm/h",
-        transform=None,
-        zerovalue=0,
-        institution="The institution that created the file",
-        projection=projection_definition,
-        yorigin="upper",
-        threshold=0.03,
-        x1=0,
-        x2=100,
-        y1=0,
-        y2=100,
-    )
     return precip, quality, metadata
