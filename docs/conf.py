@@ -4,6 +4,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
     'sphinx.ext.todo',
+    "numpydoc",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -19,12 +20,12 @@ source_encoding = 'utf-8'
 master_doc = 'index'
 
 # General information about the project.
-project = 'cookiecutter-pypackage'
+project = 'cookiecutter-pysteps-plugin'
 copyright = '2020, Pysteps developers'
 author = 'Pysteps developers'
 
-version = '0.9.0'
-release = '0.9.0'
+version = '1.0.0'
+release = '1.0.0'
 
 language = None
 

@@ -1,15 +1,34 @@
 .. IMPORTANT::
    The plugins support in pysteps is only available for versions >=1.4.
 
-===========================
 Cookiecutter Pysteps-plugin
 ===========================
 
-Cookiecutter template for Pysteps plugins.
-**Important**:  Currently, only importers can be added to pysteps using plugins.
+.. README_BEGIN_TAG
 
-**Cookiecutter** is a command-line utility to creates python packages projects from
+Cookiecutter template for Pysteps plugins.
+Cookiecutter_ is a command-line utility to creates python packages projects from
 templates, called "cookiecutters."
+
+.. _Cookiecutter: https://cookiecutter.readthedocs.io
+
+.. note:: **Important**: Currently, only importers are supported as plugins.
+
+.. _how_plugins_work:
+
+How do the plugins work?
+========================
+
+When the plugin is installed, it advertises the new importers to other packages
+(in our case, pysteps) using the python `entry points specification`_.
+These new importers are automatically discovered every time that the pysteps library is
+imported. The discovered importers are added as attributes to the io.importers module
+and registered to the io.get_method interface without any user intervention.
+In addition, since the plugins' installation does not modify the actual pysteps
+installation (i.e., the pysteps sources), the pysteps library can be updated without
+reinstalling the plugin.
+
+.. _`entry points specification`: https://packaging.python.org/specifications/entry-points/
 
 Quickstart
 ----------
@@ -18,7 +37,7 @@ Install the latest Cookiecutter::
 
     pip install -U cookiecutter
 
-Generate a Pysteps plugin package project using::
+To generate a skeleton for a Pysteps plugin in the current folder, simply run::
 
     cookiecutter https://github.com/pysteps/cookiecutter-pysteps-plugin
 
@@ -38,6 +57,9 @@ a skeleton for the plugin package:
   Options: [1. MIT License, 2. BSD license, 3. ISC license, 4. Apache Software License
   2.0, 5. GNU General Public License v3, 6. Not open source]
 
+.. README_END_TAG
+
+.. CREDITS_BEGIN_TAG
 
 Credits
 -------
@@ -46,3 +68,5 @@ The cookiecutter-pysteps-plugin template was adapted from the cookiecutter-pypac
 template.
 
 .. _cookiecutter-pypackage: https://github.com/audreyfeldroy/cookiecutter-pypackage
+
+.. CREDITS_END_TAG
