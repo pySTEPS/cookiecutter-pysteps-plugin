@@ -1,10 +1,13 @@
 {
   "full_name": "Your Name",
   "email": "your@email.com",
+  "plugin_type": "importer",
   "project_name": "pysteps-importer-abc",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
-  "project_short_description": "Pysteps plugin adding the importers for the ABC centre.",
+  "plugin_name": "importer_abc",
+  "diagnostic_plugin_name": "diagnostics_xyz",
   "importer_name": "importer_abc",
+  "project_short_description": "Pysteps plugin adding x functionality",
   "version": "0.1.0",
   "open_source_license": ["MIT license", "BSD license", "ISC license", "GNU General Public License v3", "Apache Software License 2.0", "Not open source"]
 }

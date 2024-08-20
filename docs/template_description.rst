@@ -20,23 +20,25 @@ The plugin template skeleton has the following structure:
     ├── LICENSE  (*a copy of the selected license*)
     ├── MANIFEST.in
     ├── <project_slug>
-    │   ├── <importer_name>.py
-    │   └── __init__.py
+    │   └── <plugin_type>
+    │       ├── <plugin_name>.py
+    │       └── __init__.py
     ├── README.rst
     ├── requirements_dev.txt
     ├── setup.cfg
     ├── setup.py
     ├── tests
     │   ├── __init__.py
-    │   └── test_pysteps_<importer_name>.py
+    │   └── test_pysteps_<plugin_name>.py
     └── tox.ini
 
 
 Project name (<project_name>)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For the project name, it is recommended using the following convention:
-**pysteps-importer-<institution short name>**.
+For the project name, it is recommended using the following conventions:
+**pysteps-importer-<institution short name>**,
+**pysteps-diagnostics-<project short name>**.
 Note that this convention is not strictly needed, and any name can be used.
 
 
@@ -48,26 +50,38 @@ Package name (<project slug>)
     <project_name>
     └── <project_slug>
 
-This is the name of our package containing the new importers for pysteps. The package
+This is the name of our package containing the new functions for pysteps. The package
 name should not contain spaces, hyphens, or uppercase letters. The same naming
-convention as the package name is recommended. Note that the package name should be
+conventions as the project name is recommended. Note that the package name should be
 Python import friendly (no spaces, no hyphens, and no special characters).
 
 
-Importer module (<importer_name>)
+Plugin type (<plugin type>)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    <project_name>
+    └── <project_slug>
+            └── <plugin_type>
+
+This is the type of plugin which has been created. Currently the only options are importer and diagnostics.
+
+
+plugin module (<plugin_name>)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
     <project_name>
-    └── <project_slug>pysteps-importer-abc
-            ├── <importer_name>.py
-            └── __init__.py
+    └── <project_slug>
+            └── <plugin_type>
+                    ├── <plugin_name>.py
+                    └── __init__.py
 
-Name of the module implementing the new importers.
-The module's name must start with `importer_` prefix. This is strictly needed for the
+Name of the module implementing the new functions.
+The module's name must start with `importer_`, or the 'diagnostics_' prefix. This is strictly needed for the
 pysteps interface to work correctly.
-The <importer_name>.py
 
 README
 ~~~~~~
@@ -185,7 +199,7 @@ Tests
     <project_name>
     └── tests
     │    ├── __init__.py
-    │    └── test_pysteps_<importer_name>.py
+    │    └── test_pysteps_<plugin_name>.py
     └── tox.ini (optional)
 
 

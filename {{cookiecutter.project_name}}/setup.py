@@ -23,18 +23,24 @@ test_requirements = ['pytest>=3']
     'GNU General Public License v3': 'License :: OSI Approved :: GNU General Public License v3 (GPLv3)'
 } %}
 
+
+entry = {
+    'pysteps.plugins.diagnostics': [
+        '{{cookiecutter.plugin_name }}={{ cookiecutter.project_slug }}.{{ cookiecutter.plugin_type }}.{{ cookiecutter.plugin_name }}:{{cookiecutter.plugin_name }}'
+    ]
+}
+
 setup(
     author="{{ cookiecutter.full_name.replace('\"', '\\\"') }}",
     author_email='{{ cookiecutter.email }}',
-    python_requires='>=3.6',
+    python_requires='>=3.9',
     classifiers=[
 {%- if cookiecutter.open_source_license in license_classifiers %}
         '{{ license_classifiers[cookiecutter.open_source_license] }}',
 {%- endif %}
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.11'
     ],
     description="{{ cookiecutter.project_short_description }}",
     install_requires=requirements,
@@ -45,7 +51,7 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     include_package_data=True,
-    keywords=['{{ cookiecutter.project_slug }}', 'pysteps' , 'plugin', 'importer'],
+    keywords=['{{ cookiecutter.project_slug }}', 'pysteps' , 'plugin', '{{ cookiecutter.plugin_type }}'],
     name='{{ cookiecutter.project_name }}',
     packages=find_packages(),
     setup_requires=setup_requirements,
@@ -61,6 +67,7 @@ setup(
     # An entry point is defined by three properties:
     # - The group that an entry point belongs indicate the kind of functionality that
     #   provides. For the pysteps importers use the "pysteps.plugins.importers" group.
+    #   For the pysteps diagnostic postprocessors use the "pysteps.plugins.diagnostics" group.
     # - The unique name that is used to identify this entry point in the
     #   "pysteps.plugins.importers" group.
     # - A reference to a Python object. For the pysteps importers, the object should
@@ -75,12 +82,7 @@ setup(
     #         "entry_point_name=package_name.module:function2",
     #     ]
     # },
-    entry_points={
-        'pysteps.plugins.importers': [
-            '{{cookiecutter.importer_name }}_xxx={{ cookiecutter.project_slug }}.{{ cookiecutter.importer_name }}:{{cookiecutter.importer_name }}_xxx',
-            # Add additional importers if needed.
-        ]
-    },
+    entry_points = entry,
     version='{{ cookiecutter.version }}',
     zip_safe=False,
 )

@@ -20,7 +20,7 @@ import numpy as np
 from pysteps.decorators import postprocess_import
 
 
-# Function {{ cookiecutter.importer_name }}_xxx to import XXX-format
+# Function {{ cookiecutter.plugin_name }}_xxx to import XXX-format
 # files from the ABC institution
 
 # IMPORTANT: The name of the importer should follow the "importer_institution_format"
@@ -79,10 +79,8 @@ from pysteps.decorators import postprocess_import
 #     Associated metadata (pixel sizes, map projections, etc.).
 #
 #
-
-
 @postprocess_import()
-def {{cookiecutter.importer_name }}_xxx(filename, keyword1="some_keyword", keyword2=10, **kwargs):
+def {{cookiecutter.plugin_name }}(filename, keyword1="some_keyword", keyword2=10, **kwargs):
     """
     A detailed description of the importer. A minimal documentation is
     strictly needed since the pysteps importers interface expect docstrings.
@@ -145,7 +143,7 @@ def {{cookiecutter.importer_name }}_xxx(filename, keyword1="some_keyword", keywo
     # For additional information on the metadata fields, see:
     # https://pysteps.readthedocs.io/en/latest/pysteps_reference/io.html#pysteps-io-importers
 
-    # The projection definition is an string with a PROJ.4-compatible projection
+    # The projection definition is a string with a PROJ.4-compatible projection
     # definition of the cartographic projection used for the data
     # More info at: https://proj.org/usage/projections.html
 

@@ -3,14 +3,14 @@
 from distutils.core import setup
 
 setup(
-    name='cookiecutter-pysteps-plugin',
+    name="cookiecutter-pysteps-plugin",
     packages=[],
-    version='0.1.0',
-    description='Cookiecutter template for a Pysteps plugin package',
+    version="0.1.0",
+    description="Cookiecutter template for a Pysteps plugin package",
     author="PySteps developers",
-    license='BSD',
-    keywords=['cookiecutter', 'template', 'pysteps', 'plugin'],
-    python_requires='>=3.6',
+    license="BSD",
+    keywords=["cookiecutter", "template", "pysteps", "plugin"],
+    python_requires=">=3.9",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Science/Research",

@@ -33,15 +33,14 @@ setup_requirements = []
 setup(
     author="Your name",
     author_email="Your email",
-    python_requires=">=3.6",  # Pysteps supports python versions >3.6
+    python_requires=">=3.9",  # Pysteps supports python versions >3.6
     # Add the classifiers to the package.
     classifiers=[
         "Intended Audience :: Developers",
         "Natural Language :: English",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.11",
     ],
     description="Pysteps plugin for importing the ABC composites.",  # short description
     install_requires=requirements,

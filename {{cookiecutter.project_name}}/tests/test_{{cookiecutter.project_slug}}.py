@@ -2,21 +2,33 @@
 
 """Tests for `{{ cookiecutter.project_slug }}` package."""
 
-def test_importers_discovery():
-    """It is recommended to at least test that the importers provided by the plugin are
+
+def test_plugins_discovery():
+    """It is recommended to at least test that the plugin modules provided by the plugin are
     correctly detected by pysteps. For this, the tests should be ran on the installed
     version of the plugin (and not against the plugin sources).
     """
 
-    from pysteps.io import interface
+    from pysteps.io import interface as io_interface
+    from pysteps.postprocessing import interface as pp_interface
 
-    new_importers = ["{{cookiecutter.importer_name }}_xxx"]
-    for importer in new_importers:
-        assert importer.replace("import_", "") in interface._importer_methods
+    plugin_type = "{{cookiecutter.plugin_type}}"
+    if plugin_type == "importer":
+        new_importers = ["{{cookiecutter.plugin_name }}"]
+        for importer in new_importers:
+            assert importer.replace("import_", "") in io_interface._importer_methods
+
+    elif plugin_type == "diagnostics":
+        new_diagnostics = ["{{cookiecutter.plugin_name }}"]
+        for diagnostic in new_diagnostics:
+            assert (
+                diagnostic.replace("diagnostics_", "")
+                in pp_interface._diagnostics_methods
+            )
 
 
 def test_importers_with_files():
-    """Additionally, you can tests that your importers correctly reads the corresponding
+    """Additionally, you can test that your plugin correctly reads the corresponding
     some example data.
     """
 
