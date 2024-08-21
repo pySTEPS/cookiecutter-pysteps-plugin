@@ -18,13 +18,14 @@ def test_plugins_discovery():
         for importer in new_importers:
             assert importer.replace("import_", "") in io_interface._importer_methods
 
-    elif plugin_type == "diagnostics":
-        new_diagnostics = ["{{cookiecutter.plugin_name }}"]
-        for diagnostic in new_diagnostics:
-            assert (
-                diagnostic.replace("diagnostics_", "")
-                in pp_interface._diagnostics_methods
-            )
+    elif plugin_type == "postprocessor":
+        new_postprocessors = ["{{cookiecutter.plugin_name }}"]
+        for postprocessor in new_postprocessors:
+            postprocessor.replace("postprocessors_", "")
+            if postprocessor.startswith("diagnostics"):
+                assert postprocessor in pp_interface._diagnostics_methods
+            elif postprocessor.startswith("ensemblestats"):
+                assert postprocessor in pp_interface._ensemblestats_methods
 
 
 def test_importers_with_files():

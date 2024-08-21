@@ -23,10 +23,11 @@ test_requirements = ['pytest>=3']
     'GNU General Public License v3': 'License :: OSI Approved :: GNU General Public License v3 (GPLv3)'
 } %}
 
+entry_label = 'pysteps.plugins.' + '{{ cookiecutter.plugin_type }}'
 
 entry = {
-    'pysteps.plugins.diagnostics': [
-        '{{cookiecutter.plugin_name }}={{ cookiecutter.project_slug }}.{{ cookiecutter.plugin_type }}.{{ cookiecutter.plugin_name }}:{{cookiecutter.plugin_name }}'
+    entry_label: [
+        '{{ cookiecutter.plugin_name }}={{ cookiecutter.project_slug }}.{{ cookiecutter.plugin_type }}.{{ cookiecutter.plugin_name }}:{{cookiecutter.plugin_name }}'
     ]
 }
 
@@ -67,7 +68,7 @@ setup(
     # An entry point is defined by three properties:
     # - The group that an entry point belongs indicate the kind of functionality that
     #   provides. For the pysteps importers use the "pysteps.plugins.importers" group.
-    #   For the pysteps diagnostic postprocessors use the "pysteps.plugins.diagnostics" group.
+    #   For the pysteps diagnostic postprocessors use the "pysteps.plugins.postprocessor" group.
     # - The unique name that is used to identify this entry point in the
     #   "pysteps.plugins.importers" group.
     # - A reference to a Python object. For the pysteps importers, the object should

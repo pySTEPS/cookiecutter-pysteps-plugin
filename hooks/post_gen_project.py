@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
 plugin_type = "{{ cookiecutter.plugin_type }}".lower()
 
-if plugin_type == "diagnostics":
+if plugin_type == "postprocessor":
     shutil.rmtree("{{ cookiecutter.project_slug }}/importer")
 else:
-    shutil.rmtree("{{ cookiecutter.project_slug }}/diagnostics")
+    shutil.rmtree("{{ cookiecutter.project_slug }}/postprocessor")

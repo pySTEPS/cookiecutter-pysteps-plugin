@@ -5,7 +5,7 @@
   "project_name": "pysteps-importer-abc",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
   "plugin_name": "importer_abc",
-  "diagnostic_plugin_name": "diagnostics_xyz",
+  "diagnostic_plugin_name": "postprocessors_diagnostics_xyz",
   "importer_name": "importer_abc",
   "project_short_description": "Pysteps plugin adding x functionality",
   "version": "0.1.0",

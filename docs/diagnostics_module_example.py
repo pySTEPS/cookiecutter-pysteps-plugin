@@ -41,35 +41,35 @@ in this module and other relevant information.
 #
 #
 
-def {{cookiecutter.diagnostic_name}}(filename, **kwargs):
-  """
-  A detailed description of the diagnostic postprocessor. A minimal documentation is
-  strictly needed since the pysteps diagnostics interface expect docstrings.
 
-  For example, a documentation may look like this:
+def postprocessor_diagnostics_calc(filename, **kwargs):
+    """
+    A detailed description of the diagnostic postprocessor. A minimal documentation is
+    strictly needed since the pysteps postprocessor interface expect docstrings.
 
-  Carry out functionality x.
+    For example, a documentation may look like this:
 
-  Parameters
-    ----------
-    filename : str
-        Name of the file to be processed.
+    Carry out functionality x.
 
-    keyword1 : str
-        Some keyword used to fine control the diagnostic postprocessor behavior.
+    Parameters
+      ----------
+      filename : str
+          Name of the file to be processed.
 
-    keyword2 : int
-        Another keyword used to fine control the diagnostic postprocessor behavior.
+      keyword1 : str
+          Some keyword used to fine control the diagnostic postprocessor behaviour.
 
-    {extra_kwargs_doc}
+      keyword2 : int
+          Another keyword used to fine control the diagnostic postprocessor behaviour.
 
-  Returns
-  -------.
-  """
-  ####################################################################################
-  # Add the code required to run the diagnostic postprocessor here.
-  file = open(filename, "w")
-  file.write("hello world")
-  file.close()
-  return file
+      {extra_kwargs_doc}
 
+    Returns
+    -------.
+    """
+    ####################################################################################
+    # Add the code required to run the diagnostic postprocessor here.
+    file = open(filename, "w")
+    file.write("hello world")
+    file.close()
+    return file

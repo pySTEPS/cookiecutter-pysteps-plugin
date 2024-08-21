@@ -14,6 +14,6 @@ if not re.match(MODULE_REGEX, module_name):
     sys.exit(1)
 
 plugin_type = "{{ cookiecutter.plugin_type}}"
-if plugin_type != "importer" and plugin_type != "diagnostics":
-    print('\nERROR: The plugin_type must be "importer" or "diagnostics"')
+if plugin_type != "importer" and plugin_type != "postprocessor":
+    print('\nERROR: The plugin_type must be "importer" or "postprocessor"')
     sys.exit(1)

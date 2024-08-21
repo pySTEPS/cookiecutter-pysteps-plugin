@@ -47,7 +47,7 @@ a skeleton for the plugin package:
 - **full_name**: Your full name.
 - **email**: Your email address.
 - **plugin_type**: The type of plugin you would like to create.
-  Options: [1. importer, 2. diagnostics]
+  Options: [1. importer, 2. postprocessor]
 - **project_name**: The name of your new Pysteps plugin.
 - **project_slug**: The namespace of your Python package.
   The name should be Python import friendly (no spaces, no hyphens, and no

@@ -38,7 +38,7 @@ Project name (<project_name>)
 
 For the project name, it is recommended using the following conventions:
 **pysteps-importer-<institution short name>**,
-**pysteps-diagnostics-<project short name>**.
+**pysteps-postprocessor-<project short name>**.
 Note that this convention is not strictly needed, and any name can be used.
 
 
@@ -80,7 +80,7 @@ plugin module (<plugin_name>)
                     └── __init__.py
 
 Name of the module implementing the new functions.
-The module's name must start with `importer_`, or the 'diagnostics_' prefix. This is strictly needed for the
+The module's name must start with `importer_`, or the 'postprocessor_' prefix. This is strictly needed for the
 pysteps interface to work correctly.
 
 README
