@@ -16,7 +16,7 @@ in this module and other relevant information.
 # except ImportError:
 #     PYPROJ_IMPORTED = False
 
-# Function {{ cookiecutter.postprocessor_plugin_name }} to create postprocessing plugins.
+# Function {{ cookiecutter.plugin_name }} to create postprocessing plugins.
 
 # IMPORTANT: The name of the postprocessor should follow the "postprocessor_postprocessorType_postprocessorName"
 # naming convention. The "postprocessor_" prefix to the postprocessor name is MANDATORY since it is
