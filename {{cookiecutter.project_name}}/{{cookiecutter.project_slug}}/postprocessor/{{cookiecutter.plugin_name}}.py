@@ -62,17 +62,17 @@ def {{cookiecutter.plugin_name}}(filename, **kwargs):
       Carry out functionality x.
 
       Parameters
-        ----------
-        filename : str
+      ----------
+      filename : str
             Name of the file to be processed.
 
-        keyword1 : str
+      keyword1 : str
             Some keyword used to fine control the diagnostic postprocessor behaviour.
 
-        keyword2 : int
+      keyword2 : int
             Another keyword used to fine control the diagnostic postprocessor behaviour.
 
-        {extra_kwargs_doc}
+      {extra_kwargs_doc}
 
       Returns
       -------.
