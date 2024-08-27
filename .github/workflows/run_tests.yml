@@ -18,7 +18,7 @@ jobs:
         os: [ "ubuntu-latest", "windows-latest" ]
         # Note: The python versions were changed due to the latest versions of ubuntu and windows no longer having support for python 3.6 or 3.8.
         # Note: MacOS compatibility has been removed due to no gcc compatibility with the latest versions of MacOS.
-        python-version: [ "3.9", "3.11"]
+        python-version: [ "3.10", "3.12"]
       max-parallel: 6
 
     steps:

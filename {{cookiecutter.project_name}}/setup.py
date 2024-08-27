@@ -34,14 +34,14 @@ entry = {
 setup(
     author="{{ cookiecutter.full_name.replace('\"', '\\\"') }}",
     author_email='{{ cookiecutter.email }}',
-    python_requires='>=3.9',
+    python_requires='>=3.10',
     classifiers=[
 {%- if cookiecutter.open_source_license in license_classifiers %}
         '{{ license_classifiers[cookiecutter.open_source_license] }}',
 {%- endif %}
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.9',
-        'Programming Language :: Python :: 3.11'
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.12'
     ],
     description="{{ cookiecutter.project_short_description }}",
     install_requires=requirements,

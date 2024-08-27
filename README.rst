@@ -12,7 +12,7 @@ templates, called "cookiecutters."
 
 .. _Cookiecutter: https://cookiecutter.readthedocs.io
 
-.. note:: **Important**: Currently, only importers and diagnostic postprocessors are supported as plugins.
+.. note:: **Important**: Currently, only importers and postprocessors are supported as plugins.
 
 .. _how_plugins_work:
 
@@ -48,9 +48,10 @@ a skeleton for the plugin package:
 - **email**: Your email address.
 - **plugin_type**: The type of plugin you would like to create.
   Options: [1. importer, 2. postprocessor]
+- **plugin_subtype**: The subtype of plugin which you would like to create. e.g for postprocessors, options: [1. diagnostics, 2. ensemblestats]
 - **project_name**: The name of your new Pysteps plugin.
 - **project_slug**: The namespace of your Python package.
-  The name should be Python import friendly (no spaces, no hyphens, and no
+  The slug should be Python import friendly (no spaces, no hyphens, and no
   special characters).
 - **project_short_description**: Short description of the plugin.
 - **plugin_name**: Name of the module implementing the plugin.
