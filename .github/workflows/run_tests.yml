@@ -15,15 +15,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ "ubuntu-latest", "windows-latest" ]
-        # Note: The python versions were changed due to the latest versions of ubuntu and windows no longer having support for python 3.6 or 3.8.
-        # Note: MacOS compatibility has been removed due to no gcc compatibility with the latest versions of MacOS.
+        os: [ "ubuntu-latest", "macos-latest", "windows-latest" ]
         python-version: [ "3.10", "3.12"]
       max-parallel: 6
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
@@ -44,13 +42,13 @@ jobs:
           brew update-reset
           brew update
           gcc-13 --version || brew install gcc@13
-          pip install git+https://github.com/pySTEPS/pysteps
+          pip install git+https://github.com/pySTEPS/pysteps@postprocessor_plugin
           python -c "import pysteps"
 
       - name: Install pysteps on Windows and Linux
         if: matrix.os != 'macos-latest'
         run: |
-          pip install git+https://github.com/pySTEPS/pysteps
+          pip install git+https://github.com/pySTEPS/pysteps@postprocessor_plugin
           python -c "import pysteps"
 
       - name: Run tests
