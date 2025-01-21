@@ -32,21 +32,20 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements_dev.txt
 
-#      - name: Install pysteps on MacOS
-#        if: matrix.os == 'macos-latest'
-#        working-directory: ${{github.workspace}}
-#        env:
-#          CC: gcc-9
-#          CXX: g++-9
-#          CXX1X: g++-9
-#          HOMEBREW_NO_INSTALL_CLEANUP: 1
-#        run: |
-#          brew update-reset
-#          brew update
-#          brew install gcc@9
-#          gcc-9 --version
-#          pip install git+https://github.com/pySTEPS/pysteps
-#          python -c "import pysteps"
+      - name: Install pysteps on MacOS
+        if: matrix.os == 'macos-latest'
+        working-directory: ${{github.workspace}}
+        env:
+          CC: gcc-13
+          CXX: g++-13
+          CXX1X: g++-13
+          HOMEBREW_NO_INSTALL_CLEANUP: 1
+        run: |
+          brew update-reset
+          brew update
+          gcc-13 --version || brew install gcc@13
+          pip install git+https://github.com/pySTEPS/pysteps
+          python -c "import pysteps"
 
       - name: Install pysteps on Windows and Linux
         if: matrix.os != 'macos-latest'
