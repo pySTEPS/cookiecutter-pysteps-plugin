@@ -1,8 +1,8 @@
 {
   "full_name": "Your Name",
   "email": "your@email.com",
-  "plugin_type": ["importer", "diagnostic"],
-  "plugin_subtype": "{%if cookiecutter.plugin_type == 'importer' %}{{ 'institution' }}{% else}{{ '' }}{% endif %}",
+  "plugin_type": ["importer", "diagnostic", "ensemblestat"],
+  "plugin_subtype": "{% if cookiecutter.plugin_type == 'importer' %}{{ 'institution' }}{% else %}{{ '' }}{% endif %}",
   "project_name":   "{{ 'pysteps-' + cookiecutter.plugin_type + '-' + cookiecutter.plugin_subtype + '-name' }}",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
   "plugin_name": "{{ cookiecutter.project_slug.split('_', 1)[1] }}",
