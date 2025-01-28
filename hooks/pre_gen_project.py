@@ -13,7 +13,9 @@ if not re.match(MODULE_REGEX, module_name):
     # Exit to cancel project
     sys.exit(1)
 
+VALID_PLUGIN_TYPES = ["importer", "diagnostic", "ensemblestat"]
+
 plugin_type = "{{ cookiecutter.plugin_type}}"
-if plugin_type != "importer" and plugin_type != "postprocessor":
-    print('\nERROR: The plugin_type must be "importer" or "postprocessor"')
+if plugin_type not in VALID_PLUGIN_TYPES:
+    print(f'\nERROR: The plugin_type must be one of {", ".join(VALID_PLUGIN_TYPES)}')
     sys.exit(1)
