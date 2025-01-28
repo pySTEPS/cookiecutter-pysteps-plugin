@@ -9,7 +9,7 @@ in this module and other relevant information.
 # Function {{ cookiecutter.plugin_name }} to create diagnostic plugins.
 
 # IMPORTANT: The name of the diagnostic should follow the "diagnostic_name"
-# naming convention. The "diagnostics_" prefix to the diagnostic name is MANDATORY since it is
+# naming convention. The "diagnostic_" prefix to the diagnostic name is MANDATORY since it is
 # used by the pysteps interface.
 #
 # Check the pysteps documentation for examples of diagnostic names that follow this
@@ -18,7 +18,7 @@ in this module and other relevant information.
 #
 # The function prototype for the diagnostic's declaration should have the following form:
 #
-#  def diagnostics_xyz(filename, **kwargs):
+#  def diagnostic_xyz(filename, **kwargs):
 #
 #
 # Function arguments
@@ -42,7 +42,7 @@ in this module and other relevant information.
 #
 
 
-def diagnostics_calc(filename, **kwargs):
+def diagnostic_calc(filename, **kwargs):
     """
     A detailed description of the diagnostic. A minimal documentation is
     strictly needed since the pysteps postprocessing interface expect docstrings.
