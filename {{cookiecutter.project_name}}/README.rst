@@ -14,7 +14,7 @@ License
 Documentation
 =============
 
-Here write a short description of the plugin, indicating the importers or postprocessors that it provides.
+Here write a short description of the plugin, indicating the importers, diagnostics etc. that it provides.
 
 Installation instructions
 =========================
