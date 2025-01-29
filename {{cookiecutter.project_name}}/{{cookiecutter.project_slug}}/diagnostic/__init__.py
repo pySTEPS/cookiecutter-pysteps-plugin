@@ -1,2 +1,2 @@
 import cookiecutter
-from {{cookiecutter.project_slug}}.diagnostics import {{cookiecutter.plugin_name}}
+from {{cookiecutter.project_slug}}.diagnostic import {{cookiecutter.plugin_name}}
