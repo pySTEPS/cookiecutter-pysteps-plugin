@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
 plugin_type = "{{ cookiecutter.plugin_type }}".lower()
 
-VALID_PLUGIN_TYPES = ["importer", "diagnostic", "ensemblestat"]
+VALID_PLUGIN_TYPES = ["importer", "diagnostic"]#, "ensemblestat"]
 # Remove the plugin type that was not selected
 for plugin in VALID_PLUGIN_TYPES:
     if plugin != plugin_type:
