@@ -53,7 +53,7 @@ in this module and other relevant information.
 #
 #
 
-def {{cookiecutter.plugin_name}}(filename, **kwargs):
+def {{cookiecutter.plugin_function}}(filename, **kwargs):
       """
       A detailed description of the postprocessing plugin. A minimal documentation is
       strictly needed since the pysteps postprocessing interface expects docstrings.

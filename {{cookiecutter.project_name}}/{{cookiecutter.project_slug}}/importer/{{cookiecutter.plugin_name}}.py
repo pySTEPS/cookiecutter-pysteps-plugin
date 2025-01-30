@@ -81,7 +81,7 @@ from pysteps.decorators import postprocess_import
 #
 #
 @postprocess_import()
-def import_abc_xxx(filename, keyword1="some_keyword", keyword2=10, **kwargs):
+def {{cookiecutter.plugin_function}}(filename, keyword1="some_keyword", keyword2=10, **kwargs):
     """
     A detailed description of the importer. A minimal documentation is
     strictly needed since the pysteps importers interface expect docstrings.

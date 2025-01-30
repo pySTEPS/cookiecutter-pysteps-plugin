@@ -25,9 +25,14 @@ test_requirements = ['pytest>=3']
 
 entry_label = 'pysteps.plugins.' + '{{ cookiecutter.plugin_type }}'
 
+# It woudld be even better to read the functions from the plugin module.
+# We could add multiple functions in the entry_points.
+# Is that possible?
+# e.g. like plugin_functions = [attr for attr in dir(importlib.import_module(cookiecutter.project_slug.cookiecutter.plugin_type.cookiecutter.plugin_name)) if attr.startswith("import_" if "importer" in cookiecutter.plugin_type else cookiecutter.plugin_type+"_")]
+# Then loop over the functions to set all entry_points.
 entry = {
     entry_label: [
-        '{{ cookiecutter.plugin_name }}={{ cookiecutter.project_slug }}.{{ cookiecutter.plugin_type }}.{{ cookiecutter.plugin_name }}:{{cookiecutter.plugin_name }}'
+        '{{ cookiecutter.plugin_function }}={{ cookiecutter.project_slug }}.{{ cookiecutter.plugin_type }}.{{ cookiecutter.plugin_name }}:{{ cookiecutter.plugin_function }}'
     ]
 }
 

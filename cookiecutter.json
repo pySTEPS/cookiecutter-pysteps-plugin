@@ -6,6 +6,7 @@
   "project_name":   "{{ 'pysteps-' + cookiecutter.plugin_type + '-' + cookiecutter.plugin_subtype + '-name' }}",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
   "plugin_name": "{{ cookiecutter.project_slug.split('_', 1)[1] }}",
+  "plugin_function": "{{ cookiecutter.plugin_name.replace('importer', 'import') }}",
   "project_short_description": "Pysteps plugin adding x functionality",
   "version": "0.1.0",
   "open_source_license": ["MIT license", "BSD license", "ISC license", "GNU General Public License v3", "Apache Software License 2.0", "Not open source"]
