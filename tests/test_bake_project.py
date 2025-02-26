@@ -26,7 +26,7 @@ def inside_dir(dirpath):
 
 
 @contextmanager
-def bake_in_temp_dir(cookies, *args, **kwargs):
+def bake_in_temp_dir_and_install(cookies, *args, **kwargs):
     """
     Delete the temporal directory that is created when executing the tests
     :param cookies: pytest_cookies.Cookies,
@@ -35,9 +35,11 @@ def bake_in_temp_dir(cookies, *args, **kwargs):
     result = cookies.bake(*args, **kwargs)
 
     try:
+        run_inside_dir("pip install ./", str(result.project))
         yield result
     finally:
         if result.project is not None and os.path.exists(result.project):
+            os.system("pip uninstall -y " + result.project.basename)
             rmtree(str(result.project))
 
 
@@ -58,7 +60,7 @@ def check_output_inside_dir(command, dirpath):
 
 
 def test_year_compute_in_license_file(cookies):
-    with bake_in_temp_dir(cookies) as result:
+    with bake_in_temp_dir_and_install(cookies) as result:
         license_file_path = result.project.join("LICENSE")
         now = datetime.datetime.now()
         assert str(now.year) in license_file_path.read()
@@ -73,7 +75,7 @@ def project_info(result):
 
 
 def test_bake_with_defaults(cookies):
-    with bake_in_temp_dir(cookies) as result:
+    with bake_in_temp_dir_and_install(cookies) as result:
         assert result.project.isdir()
         assert result.exit_code == 0
         assert result.exception is None
@@ -86,14 +88,14 @@ def test_bake_with_defaults(cookies):
 
 
 def test_bake_and_run_tests(cookies):
-    with bake_in_temp_dir(cookies) as result:
+    with bake_in_temp_dir_and_install(cookies) as result:
         assert result.project.isdir()
         assert run_inside_dir("pytest", str(result.project)) == 0
 
 
 def test_bake_withspecialchars_and_run_tests(cookies):
     """Ensure that a `full_name` with double quotes does not break setup.py"""
-    with bake_in_temp_dir(
+    with bake_in_temp_dir_and_install(
         cookies, extra_context={"full_name": 'name "quote" name'}
     ) as result:
         assert result.project.isdir()
@@ -102,7 +104,7 @@ def test_bake_withspecialchars_and_run_tests(cookies):
 
 def test_bake_with_apostrophe_and_run_tests(cookies):
     """Ensure that a `full_name` with apostrophes does not break setup.py"""
-    with bake_in_temp_dir(cookies, extra_context={"full_name": "O'connor"}) as result:
+    with bake_in_temp_dir_and_install(cookies, extra_context={"full_name": "O'connor"}) as result:
         assert result.project.isdir()
         assert run_inside_dir("pytest", str(result.project)) == 0
 
@@ -117,7 +119,7 @@ def test_bake_selecting_license(cookies):
         "GNU General Public License v3": "GNU GENERAL PUBLIC LICENSE",
     }
     for license, target_string in license_strings.items():
-        with bake_in_temp_dir(
+        with bake_in_temp_dir_and_install(
             cookies, extra_context={"open_source_license": license}
         ) as result:
             assert target_string in result.project.join("LICENSE").read()
@@ -125,7 +127,7 @@ def test_bake_selecting_license(cookies):
 
 
 def test_bake_not_open_source(cookies):
-    with bake_in_temp_dir(
+    with bake_in_temp_dir_and_install(
         cookies, extra_context={"open_source_license": "Not open source"}
     ) as result:
         found_toplevel_files = [f.basename for f in result.project.listdir()]
@@ -135,7 +137,7 @@ def test_bake_not_open_source(cookies):
 
 
 def test_using_pytest(cookies):
-    with bake_in_temp_dir(cookies, extra_context={"use_pytest": "y"}) as result:
+    with bake_in_temp_dir_and_install(cookies, extra_context={"use_pytest": "y"}) as result:
         assert result.project.isdir()
         test_file_path = result.project.join("tests/test_pysteps_importer_institution_name.py")
         lines = test_file_path.readlines()
