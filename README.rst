@@ -47,18 +47,22 @@ a skeleton for the plugin package:
 - **full_name**: Your full name.
 - **email**: Your email address.
 - **plugin_type**: The type of plugin you would like to create.
-  Options: [1. importer, 2. postprocessor]
-- **plugin_subtype**: The subtype of plugin which you would like to create. e.g for postprocessors, options: [1. diagnostics, 2. ensemblestats]
-- **project_name**: The name of your new Pysteps plugin.
-- **project_slug**: The namespace of your Python package.
-  The slug should be Python import friendly (no spaces, no hyphens, and no
-  special characters).
+  Options: [1. importer, 2. diagnostic]
+- **plugin_subtype**: Any string is allowed. The importer type can use the institution as as subtype, while an empty string is the default for a diagnostic.
+- **project_name**: The repository name. This is also the name of the plugin root directory used to install the Python package. Recommended: *pysteps-[plugin_type][-plugin_subtype]-[name] where *name* is the main funtionality
+- **project_slug**: The namespace of your Python package. The slug should be Python import friendly (no spaces, no hyphens, and no special characters).
+- **plugin_name**: Name of the module implementing the plugin. Importer modules should start with *importer_*. Diagnostic modules should start with *diagnostic_*.
+- **plugin_function**: Name of the function that is set as primary pysteps entry point for the plugin. Importer functions should start with *import_*. Diagnostic functions should start with *diagnostic_*.
 - **project_short_description**: Short description of the plugin.
-- **plugin_name**: Name of the module implementing the plugin.
 - **version**: The starting version number for your project.
 - **open_source_license**. Choose a license for your project.
   Options: [1. MIT License, 2. BSD license, 3. ISC license, 4. Apache Software License
   2.0, 5. GNU General Public License v3, 6. Not open source]
+
+This creates a local directory ``[project_name]`` as the template for your plugin.
+
+- modify the function ``[plugin_function]`` in ``[project_name]/[project_slug]/[plugin_type]/[plugin_name].py`` to your needs
+- if you add more functions in ``[project_name]/[project_slug]/[plugin_type]/[plugin_name].py`` make sure to create the additional entry points in ``[project_name]/setup.py``
 
 .. README_END_TAG
 
