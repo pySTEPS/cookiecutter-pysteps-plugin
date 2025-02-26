@@ -8,7 +8,6 @@ from contextlib import contextmanager
 import datetime
 import os
 import subprocess
-import sys
 from cookiecutter.utils import rmtree
 
 
@@ -34,6 +33,7 @@ def bake_in_temp_dir(cookies, *args, **kwargs):
         cookie to be baked and its temporal files will be removed
     """
     result = cookies.bake(*args, **kwargs)
+
     try:
         yield result
     finally:
@@ -80,7 +80,7 @@ def test_bake_with_defaults(cookies):
 
         found_toplevel_files = [f.basename for f in result.project.listdir()]
         assert "setup.py" in found_toplevel_files
-        assert "pysteps_importer_abc" in found_toplevel_files
+        assert "pysteps_importer_institution_name" in found_toplevel_files
         assert "tox.ini" in found_toplevel_files
         assert "tests" in found_toplevel_files
 
@@ -88,7 +88,7 @@ def test_bake_with_defaults(cookies):
 def test_bake_and_run_tests(cookies):
     with bake_in_temp_dir(cookies) as result:
         assert result.project.isdir()
-        assert run_inside_dir("python setup.py test", str(result.project)) == 0
+        assert run_inside_dir("pytest", str(result.project)) == 0
 
 
 def test_bake_withspecialchars_and_run_tests(cookies):
@@ -97,14 +97,14 @@ def test_bake_withspecialchars_and_run_tests(cookies):
         cookies, extra_context={"full_name": 'name "quote" name'}
     ) as result:
         assert result.project.isdir()
-        assert run_inside_dir("python setup.py test", str(result.project)) == 0
+        assert run_inside_dir("pytest", str(result.project)) == 0
 
 
 def test_bake_with_apostrophe_and_run_tests(cookies):
     """Ensure that a `full_name` with apostrophes does not break setup.py"""
     with bake_in_temp_dir(cookies, extra_context={"full_name": "O'connor"}) as result:
         assert result.project.isdir()
-        assert run_inside_dir("python setup.py test", str(result.project)) == 0
+        assert run_inside_dir("pytest", str(result.project)) == 0
 
 
 def test_bake_selecting_license(cookies):
@@ -137,9 +137,9 @@ def test_bake_not_open_source(cookies):
 def test_using_pytest(cookies):
     with bake_in_temp_dir(cookies, extra_context={"use_pytest": "y"}) as result:
         assert result.project.isdir()
-        test_file_path = result.project.join("tests/test_pysteps_importer_abc.py")
+        test_file_path = result.project.join("tests/test_pysteps_importer_institution_name.py")
         lines = test_file_path.readlines()
         # Test the new pytest target
-        assert run_inside_dir("python setup.py pytest", str(result.project)) == 0
+        assert run_inside_dir("pytest", str(result.project)) == 0
         # Test the test alias (which invokes pytest)
-        assert run_inside_dir("python setup.py test", str(result.project)) == 0
+        assert run_inside_dir("pytest", str(result.project)) == 0

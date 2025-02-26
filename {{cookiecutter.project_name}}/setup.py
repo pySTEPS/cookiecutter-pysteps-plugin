@@ -15,6 +15,13 @@ setup_requirements = ['pytest-runner']
 
 test_requirements = ['pytest>=3']
 
+# Custom command to run tests using pytest
+def run_tests():
+    import pytest
+    errno = pytest.main(["tests"])
+    raise SystemExit(errno)
+
+
 {%- set license_classifiers = {
     'MIT license': 'License :: OSI Approved :: MIT License',
     'BSD license': 'License :: OSI Approved :: BSD License',
@@ -54,8 +61,6 @@ setup(
     license="{{ cookiecutter.open_source_license }}",
 {%- endif %}
     long_description=readme,
-    test_suite='tests',
-    tests_require=test_requirements,
     include_package_data=True,
     keywords=['{{ cookiecutter.project_slug }}', 'pysteps' , 'plugin', '{{ cookiecutter.plugin_type }}'],
     name='{{ cookiecutter.project_name }}',
@@ -91,4 +96,7 @@ setup(
     entry_points = entry,
     version='{{ cookiecutter.version }}',
     zip_safe=False,
+    cmdclass = {
+        'test': run_tests,
+    },
 )
