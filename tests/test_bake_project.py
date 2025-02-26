@@ -92,6 +92,13 @@ def test_bake_and_run_tests(cookies):
         assert result.project.isdir()
         assert run_inside_dir("pytest", str(result.project)) == 0
 
+def test_bake_diagnostic_and_run_tests(cookies):
+    with bake_in_temp_dir_and_install(
+        cookies, extra_context={"plugin_type": "diagnostic"}
+    ) as result:
+        assert result.project.isdir()
+        assert run_inside_dir("pytest", str(result.project)) == 0
+
 
 def test_bake_withspecialchars_and_run_tests(cookies):
     """Ensure that a `full_name` with double quotes does not break setup.py"""
@@ -108,6 +115,19 @@ def test_bake_with_apostrophe_and_run_tests(cookies):
         assert result.project.isdir()
         assert run_inside_dir("pytest", str(result.project)) == 0
 
+def test_bake_diagnostic_plugin(cookies):
+    with bake_in_temp_dir_and_install(
+        cookies, extra_context={"plugin_type": "diagnostic"}
+    ) as result:
+        assert result.project.isdir()
+        assert result.exit_code == 0
+        assert result.exception is None
+
+        found_toplevel_files = [f.basename for f in result.project.listdir()]
+        assert "setup.py" in found_toplevel_files
+        assert "pysteps_diagnostic__name" in found_toplevel_files
+        assert "tox.ini" in found_toplevel_files
+        assert "tests" in found_toplevel_files
 
 def test_bake_selecting_license(cookies):
     license_strings = {
