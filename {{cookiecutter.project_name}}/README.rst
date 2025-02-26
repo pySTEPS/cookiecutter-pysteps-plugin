@@ -19,13 +19,13 @@ Here write a short description of the plugin, indicating the importers, diagnost
 Installation instructions
 =========================
 
-The pysteps plugin can be installed as a python package using ``pip`` from the local path *{{cookiecutter.project_slug}}/*.
+The pysteps plugin can be installed as a python package using ``pip`` from the local path *{{cookiecutter.project_name}}/*.
 
 Install with
 
 .. code-block:: console
 
-   pip install {{cookiecutter.project_slug}}/
+   pip install {{cookiecutter.project_name}}/
 
 Test the plugin
 ===============
