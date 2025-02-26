@@ -16,7 +16,7 @@ To install {{ cookiecutter.project_name }}, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install {{ cookiecutter.project_slug }}
+    $ pip install {{ cookiecutter.project_name }}
 
 
 .. The following installation instructions are recommended if the plugin needs to be installed

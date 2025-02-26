@@ -1,24 +1,21 @@
 .. _create_your_own_plugin:
 
 ===============================
-Create your own importer plugin
+Create your own plugin
 ===============================
 
-Since version 1.4, pysteps allows the users to add new importers by installing external
+Since version 1.4, pysteps allows the users to add new functionalities by installing external
 packages, called plugins, without modifying the pysteps installation. These plugins need
 to follow a particular structure (described next) to allow pysteps to discover and
-integrate the new importers to the pysteps interface without any user intervention.
+integrate the new packages to the pysteps interface without any user intervention.
 For a short description of how the plugins work, see :ref:`how_plugins_work`.
 There are two ways of creating your plugin. The first one involves building the plugin
-from scratch. An easier alternative is using a Cookiecutter template that easily builds
-the skeleton for the new importer plugin.
+from scratch. An easier alternative is using a `Cookiecutter`_ template that easily builds
+the skeleton for the new plugin. This skeleton can then be customised to the user's preference.
 
-There are two ways of creating a plugin. The first one is building the importers plugin
-from scratch. However, an easier alternative is using this `Cookiecutter`_ template
-to create the skeleton for the new importer plugin, and then customize it.
 However, this can be a daunting task if you are creating your first plugin.
 Hence, before customizing the cookiecutter template, let's review the main components of
-the plugin architecture by describing how to build an importers plugin from scratch.
+the plugin architecture by describing how to build an plugin from scratch.
 
 After you are familiar with the plugin fundamentals, you can build your plugin from the
 cookiecutter template. For a detailed description of the template, see

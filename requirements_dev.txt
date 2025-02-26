@@ -3,3 +3,4 @@ tox
 cookiecutter>=1.4.0
 pytest-cookies
 watchdog
+setuptools~=68.2.0

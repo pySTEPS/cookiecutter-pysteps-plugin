@@ -1,3 +1,3 @@
+from . import {{cookiecutter.plugin_type}}
 
-
-from {{cookiecutter.project_slug}} import {{cookiecutter.importer_name}}
+__all__ = ["{{cookiecutter.plugin_type}}"]

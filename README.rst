@@ -12,18 +12,18 @@ templates, called "cookiecutters."
 
 .. _Cookiecutter: https://cookiecutter.readthedocs.io
 
-.. note:: **Important**: Currently, only importers are supported as plugins.
+.. note:: **Important**: Currently, only importers and postprocessors are supported as plugins.
 
 .. _how_plugins_work:
 
 How do the plugins work?
 ========================
 
-When the plugin is installed, it advertises the new importers to other packages
+When the plugin is installed, it advertises the new functions to other packages
 (in our case, pysteps) using the python `entry points specification`_.
-These new importers are automatically discovered every time that the pysteps library is
-imported. The discovered importers are added as attributes to the io.importers module
-and registered to the io.get_method interface without any user intervention.
+These new functions are automatically discovered every time that the pysteps library is
+imported. The discovered functions are added as attributes to their specified module
+and registered to the module's interface without any user intervention. For example, in the case of an importer plugin, the importers would be added as attributes to the io.importers module and registered to the io.get_method interface.
 In addition, since the plugins' installation does not modify the actual pysteps
 installation (i.e., the pysteps sources), the pysteps library can be updated without
 reinstalling the plugin.
@@ -46,12 +46,15 @@ a skeleton for the plugin package:
 
 - **full_name**: Your full name.
 - **email**: Your email address.
+- **plugin_type**: The type of plugin you would like to create.
+  Options: [1. importer, 2. postprocessor]
+- **plugin_subtype**: The subtype of plugin which you would like to create. e.g for postprocessors, options: [1. diagnostics, 2. ensemblestats]
 - **project_name**: The name of your new Pysteps plugin.
 - **project_slug**: The namespace of your Python package.
-  The name should be Python import friendly (no spaces, no hyphens, and no
+  The slug should be Python import friendly (no spaces, no hyphens, and no
   special characters).
 - **project_short_description**: Short description of the plugin.
-- **importer_name**: Name of the module implementing the importers.
+- **plugin_name**: Name of the module implementing the plugin.
 - **version**: The starting version number for your project.
 - **open_source_license**. Choose a license for your project.
   Options: [1. MIT License, 2. BSD license, 3. ISC license, 4. Apache Software License

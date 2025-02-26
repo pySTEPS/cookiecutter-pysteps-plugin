@@ -20,12 +20,13 @@ import numpy as np
 from pysteps.decorators import postprocess_import
 
 
-# Function {{ cookiecutter.importer_name }}_xxx to import XXX-format
+# Function import_abc_xxx to import XXX-format
 # files from the ABC institution
 
-# IMPORTANT: The name of the importer should follow the "importer_institution_format"
+
+# IMPORTANT: The name of the importer should follow the "import_institution_format"
 # naming convention, where "institution" is the acronym or short-name of the
-# institution. The "importer_" prefix to the importer name is MANDATORY since it is
+# institution. The "import_" prefix to the importer name is MANDATORY since it is
 # used by the pysteps interface.
 #
 # Check the pysteps documentation for examples of importers names that follow this
@@ -79,10 +80,8 @@ from pysteps.decorators import postprocess_import
 #     Associated metadata (pixel sizes, map projections, etc.).
 #
 #
-
-
 @postprocess_import()
-def {{cookiecutter.importer_name }}_xxx(filename, keyword1="some_keyword", keyword2=10, **kwargs):
+def {{cookiecutter.plugin_function}}(filename, keyword1="some_keyword", keyword2=10, **kwargs):
     """
     A detailed description of the importer. A minimal documentation is
     strictly needed since the pysteps importers interface expect docstrings.
@@ -124,7 +123,7 @@ def {{cookiecutter.importer_name }}_xxx(filename, keyword1="some_keyword", keywo
     ### Uncomment the next lines if pyproj is needed for the importer
     # if not PYPROJ_IMPORTED:
     #     raise MissingOptionalDependency(
-    #         "pyproj package is required by {{cookiecutter.importer_name }}_xxx
+    #         "pyproj package is required by {{cookiecutter.plugin_name }}
     #         "but it is not installed"
     #     )
 
@@ -145,7 +144,7 @@ def {{cookiecutter.importer_name }}_xxx(filename, keyword1="some_keyword", keywo
     # For additional information on the metadata fields, see:
     # https://pysteps.readthedocs.io/en/latest/pysteps_reference/io.html#pysteps-io-importers
 
-    # The projection definition is an string with a PROJ.4-compatible projection
+    # The projection definition is a string with a PROJ.4-compatible projection
     # definition of the cartographic projection used for the data
     # More info at: https://proj.org/usage/projections.html
 
