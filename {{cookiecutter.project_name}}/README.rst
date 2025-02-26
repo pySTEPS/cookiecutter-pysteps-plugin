@@ -19,8 +19,13 @@ Here write a short description of the plugin, indicating the importers, diagnost
 Installation instructions
 =========================
 
-Describe the installation instructions here. For example, how to install the plugin from
-the sources (cloning the repository and running `setup.py install`), or using `pip`.
+The pysteps plugin can be installed as a python package using ``pip`` from the local path *{{cookiecutter.project_slug}}/*.
+
+Install with
+
+.. code-block:: console
+
+   pip install {{cookiecutter.project_slug}}/
 
 Test the plugin
 ===============
