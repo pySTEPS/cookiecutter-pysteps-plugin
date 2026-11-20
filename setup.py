@@ -5,7 +5,7 @@ from distutils.core import setup
 setup(
     name="cookiecutter-pysteps-plugin",
     packages=[],
-    version="0.1.1",
+    version="1.0.0",
     description="Cookiecutter template for a Pysteps plugin package",
     author="PySteps developers",
     license="BSD",
